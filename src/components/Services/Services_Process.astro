@@ -1,0 +1,141 @@
+---
+import OneIcon from "@icons/step-1.svg";
+import TwoIcon from "@icons/step-2.svg";
+import ThreeIcon from "@icons/step-3.svg";
+import Button from "../common/Button.astro";
+import PhoneIcon from "@icons/phone-dark.svg";
+import QuoteIcon from "@icons/quote-white.svg";
+---
+
+<section class="section-dark">
+    <div class="container">
+        <h2>PVC Fencing Made Simple</h2>
+        <p>
+            Getting your new PVC fence installed is straightforward and
+            stress-free with Noreast Fencing and Gates. Here's how we make it
+            easy from start to finish.
+        </p>
+
+        <div class="process-list">
+            <div class="process-card">
+                <div class="card-header">
+                    <OneIcon class="icon" />
+                    <h3>Choose Your Fence and Gate Style</h3>
+                </div>
+                <p>
+                    Browse our range of PVC fencing styles including picket,
+                    privacy, slat, and more. We’ll help you choose the best
+                    option for your property and goals.
+                </p>
+            </div>
+
+            <div class="process-card">
+                <div class="card-header">
+                    <TwoIcon class="icon" />
+                    <h3>Contact Our Team for a Free Quote</h3>
+                </div>
+                <p>
+                    Once you've selected your style, get in touch with our
+                    Central Coast team. We’ll answer your questions, confirm
+                    measurements, and provide a clear, no-obligation quote.
+                </p>
+            </div>
+
+            <div class="process-card">
+                <div class="card-header">
+                    <ThreeIcon class="icon" />
+                    <h3>Professional Installation Done Right</h3>
+                </div>
+                <p>
+                    Our trained installers complete the job with clean, precise
+                    workmanship. We leave your site spotless with a secure,
+                    long-lasting fence built to stand the test of time.
+                </p>
+            </div>
+        </div>
+
+        <div class="cta-buttons">
+            <Button href="tel:0405 105 855" type="secondary"
+                ><PhoneIcon />Call Us</Button
+            >
+            <Button href="/contact/#contact" type="primary"
+                ><QuoteIcon />Request a quote</Button
+            >
+        </div>
+    </div>
+</section>
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .process-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .process-card {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        background-color: white;
+        border-radius: 3px;
+        box-shadow: var(--box-shadow);
+        gap: 2rem;
+    }
+    .card-header {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+    .icon {
+        flex-shrink: 0;
+    }
+    h3 {
+        font-size: 1.2em;
+        margin-bottom: 0px;
+    }
+    .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    @media (min-width: 768px) {
+        .process-card {
+            padding: 2rem;
+        }
+        .container {
+            gap: 4rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .process-list {
+            gap: 2rem;
+        }
+        .process-card {
+            padding: 3rem;
+        }
+        .process-card:nth-of-type(2) {
+            margin-left: 4rem;
+        }
+        .process-card:nth-of-type(3) {
+            margin-left: 8rem;
+        }
+        .cta-buttons {
+            margin-left: auto;
+        }
+    }
+
+    @media (min-width: 1440px) {
+        .process-card:nth-of-type(2) {
+            margin-left: 8rem;
+        }
+        .process-card:nth-of-type(3) {
+            margin-left: 16rem;
+        }
+    }
+</style>

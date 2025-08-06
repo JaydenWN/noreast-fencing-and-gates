@@ -1,0 +1,66 @@
+---
+import ContactForm from "../common/Contact_Form.astro";
+---
+
+<section>
+    <div class="container">
+        <h2>Request a Free PVC Fencing Quote or Ask a Question</h2>
+        <p>
+            Use the form below to get in touch with Noreast Fencing and Gates.
+            Whether you're ready to start your fencing project or simply need
+            more information, our team is here to help. We respond promptly to
+            all enquiries and proudly service the Central Coast with expert PVC
+            fencing solutions built to last.
+        </p>
+
+        <ContactForm />
+    </div>
+</section>
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+        .container {
+            gap: 4rem;
+        }
+        .container > :global(form) {
+            padding: 2rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            row-gap: 4rem;
+            column-gap: 2rem;
+        }
+        .container > h2 {
+            grid-area: 1 / 1 / 2 / 3;
+        }
+    }
+
+    @media (min-width: 1440px) {
+        .container {
+            row-gap: 0px;
+            grid-template-rows: 180px auto;
+            column-gap: 4rem;
+        }
+        .container > h2 {
+            grid-area: 1 / 1 / 2 / 2;
+        }
+
+        .container > p {
+            grid-area: 2 / 1 / 3 / 2;
+        }
+
+        .container > :global(form) {
+            grid-area: 1 / 2 / 3 / 3; /* changed from row 1–3 to 2–3 */
+        }
+    }
+</style>

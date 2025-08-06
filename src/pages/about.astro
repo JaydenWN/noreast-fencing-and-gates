@@ -1,0 +1,99 @@
+---
+import AboutLocations from "../components/About/About_Locations.astro";
+import AboutMeet from "../components/About/About_Meet.astro";
+import SubHero from "../components/common/Sub_Hero.astro";
+import Layout from "../layouts/Base_Layout.astro";
+import AboutWhy from "../components/About/About_Why.astro";
+import AboutContact from "../components/About/About_Contact.astro";
+---
+
+<Layout
+	title="About Noreast Fencing and Gates | Trusted Fencers on the Central Coast"
+	description="Family-owned and proudly local, Noreast Fencing and Gates delivers professional PVC fencing installations backed by years of experience, quality products and clean finishes."
+>
+	<script type="application/ld+json" slot="head">
+		{
+			"@context": "https://schema.org",
+			"@graph": [
+				{
+					"@type": "WebPage",
+					"@id": "https://noreastfencing.com.au/contact",
+					"url": "https://noreastfencing.com.au/contact",
+					"name": "Contact Us | Noreast Fencing and Gates",
+					"description": "Get in touch with Noreast Fencing and Gates for expert PVC fencing installation on the Central Coast. Request a free quote or ask a question today.",
+					"inLanguage": "en-AU"
+				},
+				{
+					"@type": "LocalBusiness",
+					"@id": "https://noreastfencing.com.au#noreastfencing",
+					"name": "Noreast Fencing and Gates",
+					"image": "https://noreastfencing.com.au/logo.png",
+					"url": "https://noreastfencing.com.au",
+					"telephone": "0405 105 855",
+					"email": "info@noreastfencing.com.au",
+					"address": {
+						"@type": "PostalAddress",
+						"addressLocality": "Central Coast",
+						"addressRegion": "NSW",
+						"addressCountry": "AU"
+					},
+					"areaServed": [
+						{ "@type": "Place", "name": "Springfield NSW" },
+						{ "@type": "Place", "name": "East Gosford NSW" },
+						{ "@type": "Place", "name": "Wyoming NSW" },
+						{ "@type": "Place", "name": "Narara NSW" },
+						{ "@type": "Place", "name": "Point Clare NSW" },
+						{ "@type": "Place", "name": "Wadalba NSW" },
+						{ "@type": "Place", "name": "Tuggerah NSW" },
+						{ "@type": "Place", "name": "Hamlyn Terrace NSW" },
+						{ "@type": "Place", "name": "Kanwal NSW" },
+						{ "@type": "Place", "name": "Berkeley Vale NSW" },
+						{ "@type": "Place", "name": "Wamberal NSW" },
+						{ "@type": "Place", "name": "Avoca Beach NSW" },
+						{ "@type": "Place", "name": "North Avoca NSW" },
+						{ "@type": "Place", "name": "Erina NSW" },
+						{ "@type": "Place", "name": "Matcham NSW" }
+					],
+					"openingHoursSpecification": [
+						{
+							"@type": "OpeningHoursSpecification",
+							"dayOfWeek": [
+								"Monday",
+								"Tuesday",
+								"Wednesday",
+								"Thursday",
+								"Friday"
+							],
+							"opens": "07:00",
+							"closes": "17:00"
+						},
+						{
+							"@type": "OpeningHoursSpecification",
+							"dayOfWeek": "Saturday",
+							"opens": "08:00",
+							"closes": "13:00"
+						}
+					],
+					"contactPoint": {
+						"@type": "ContactPoint",
+						"telephone": "0405 105 855",
+						"contactType": "Customer Service",
+						"areaServed": "AU",
+						"availableLanguage": "English"
+					}
+				}
+			]
+		}
+	</script>
+	<SubHero
+		title="About Noreast Fencing and Gates"
+		text="Noreast Fencing and Gates is a locally owned business run by a dedicated fencing professional who takes pride in clean, precise PVC fence installations. Servicing the Central Coast with Big Country PVC Fencing products, every project is handled with a hands-on approach and attention to detail. "
+	>
+		Your Local <strong>PVC Fencing Experts</strong> on the Central Coast</SubHero
+	>
+
+	<AboutMeet />
+	<AboutLocations />
+	<AboutWhy />
+	<AboutContact />
+</Layout>

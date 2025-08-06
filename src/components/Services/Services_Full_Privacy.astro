@@ -1,0 +1,85 @@
+---
+import { Image } from "astro:assets";
+import ServicesWhy from "./Services_Why.astro";
+import ServicesCTA from "./Services_CTA.astro";
+import PVCimage from "@images/full-privacy-2.jpg";
+---
+
+<section>
+    <div class="container">
+        <h2>Full Privacy PVC Fencing for Maximum Seclusion</h2>
+        <p>
+            If you're looking to fully block out neighbours, wind, and street
+            views, full privacy PVC fencing is the ideal solution. These solid
+            panel fences offer complete coverage with a sleek, modern finish
+            that never needs painting or upkeep. It's a popular choice for side
+            and rear boundaries on Central Coast properties.
+        </p>
+        <Image
+            src={PVCimage}
+            alt="Full privacy pvc fencing central coast"
+            class="image"
+        />
+        <div class="why-list">
+            <ServicesWhy
+                title="Why Choose Full Privacy PVC Fencing?"
+                whyList={[
+                    "Complete Privacy and Wind Protection",
+                    "Clean, Modern Appearance",
+                    "Zero Maintenance Required",
+                ]}
+            />
+        </div>
+
+        <div class="cta">
+            <ServicesCTA
+                title="Create a Private Outdoor Space That Lasts"
+                text="Our team can help you design and install a full privacy fence that blends perfectly with your home. Get in touch for a free quote."
+            />
+        </div>
+    </div>
+</section>
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .image {
+        width: 100%;
+        height: 340px;
+        object-fit: cover;
+        border-radius: 3px;
+        box-shadow: var(--box-shadow);
+    }
+    .why-list,
+    .cta {
+        margin: 2rem 0px;
+    }
+
+    @media (min-width: 768px) {
+        .container {
+            gap: 4rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        h2 {
+            grid-area: 1 / 1 / 2 / 3;
+        }
+    }
+
+    @media (min-width: 1440px) {
+        .container {
+            column-gap: 6rem;
+        }
+        h2 {
+            margin-bottom: 2rem;
+        }
+    }
+</style>

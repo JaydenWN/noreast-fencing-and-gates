@@ -1,0 +1,174 @@
+---
+import LandingTestimonialsCard from "./Landing_Testimonials_Card.astro";
+import nextIcon from "@icons/next-white.svg";
+import prevIcon from "@icons/prev-white.svg";
+import { Image } from "astro:assets";
+---
+
+<section class="section-dark">
+    <div class="container">
+        <div class="header">
+            <h2>What Our Central Coast Clients Are Saying</h2>
+            <p>
+                We take pride in every fence we install. It really shows in the
+                feedback we get from happy homeowners and property owners across
+                the region. Here’s what our clients have to say about working
+                with Noreast Fencing and Gates:
+            </p>
+        </div>
+        <div class="embla">
+            <div class="embla__viewport">
+                <div class="embla__container">
+                    <div class="embla__slide">
+                        <LandingTestimonialsCard
+                            quote="I would highly recommend Gary and Noreast Fencing and Gates. Gary provided a competitive quote for my new fence. He was a great communicator and let me know what was going on at all times, he arrived and worked on the fence when he said he would and was friendly, polite and honest. I couldn't be happier with the job he did."
+                            quotee="Fiona M, Saratoga"
+                            title="Highly Recommend!"
+                        />
+                    </div>
+
+                    <div class="embla__slide">
+                        <LandingTestimonialsCard
+                            quote="Honest up fron quote. Delivered and installed on time as arranged with no visable signs of defect."
+                            quotee="Richard B, Killarney Vale"
+                            title="Honest Quality Work"
+                        />
+                    </div>
+
+                    <div class="embla__slide">
+                        <LandingTestimonialsCard
+                            quote="They were very nice. great job done at a great price and quick would recommend to anyone"
+                            quotee="Justin, Lisarow"
+                            title="Great Job & Great Price."
+                        />
+                    </div>
+
+                    <div class="embla__slide">
+                        <LandingTestimonialsCard
+                            quote="Fast, friendly, efficient and decent quote."
+                            quotee="Maggie, The Entrance"
+                            title="Friendly & Efficient."
+                        />
+                    </div>
+                </div>
+            </div>
+            <div class="embla__buttons">
+                <button class="embla__button embla__button--prev" id="prevBtn">
+                    <Image src={prevIcon} alt="previous slide" /></button
+                >
+                <button class="embla__button embla__button--next" id="nextBtn"
+                    ><Image src={nextIcon} alt="next slide" /></button
+                >
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .header {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .embla {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .embla__viewport {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .embla__container {
+        display: flex;
+    }
+
+    .embla__slide {
+        position: relative;
+        flex: 0 0 100%;
+        min-width: 0;
+        padding: 1rem;
+    }
+
+    .embla__buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .embla__button {
+        background-color: var(--orange);
+        border: none;
+        border-radius: 100%;
+        height: 35px;
+        width: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+    }
+
+    @media (min-width: 768px) {
+        .container {
+            gap: 4rem;
+        }
+        .header {
+            text-align: center;
+        }
+        .header p {
+            margin: 0px auto;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .container {
+            display: grid;
+            grid-template-columns: 0.7fr 1fr;
+            grid-template-areas: "header embla";
+            gap: 2rem;
+        }
+        .header {
+            grid-area: header;
+            text-align: left;
+        }
+        .header p {
+            width: 100%;
+        }
+        .embla {
+            grid-area: embla;
+        }
+        .embla__slide {
+            padding-top: 0px;
+        }
+        button {
+            transition: background-color 0.15s ease;
+        }
+        button:hover {
+            cursor: pointer;
+            background-color: #ff8a36;
+        }
+    }
+</style>
+
+<script>
+    import emblaCarousel from "embla-carousel";
+
+    const viewport = document.querySelector(".embla__viewport");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    const embla = emblaCarousel(viewport, { loop: true });
+
+    prevBtn.addEventListener("click", () => embla.scrollPrev());
+    nextBtn.addEventListener("click", () => embla.scrollNext());
+</script>

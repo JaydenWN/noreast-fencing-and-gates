@@ -1,0 +1,83 @@
+---
+import { Image } from "astro:assets";
+import Button from "../common/Button.astro";
+import BCPFlogo from "@images/big-country-logo.png";
+import CatalogIcon from "@icons/catalog-white.svg";
+---
+
+<section>
+    <div class="container">
+        <h2>Proud Partners with Big Country PVC Fencing</h2>
+        <p>
+            At Noreast Fencing and Gates, we exclusively install PVC fencing
+            systems manufactured by <a href="/">Big Country PVC Fencing</a>, one
+            of Australia's most trusted names in low-maintenance and
+            long-lasting fencing. Their PVC fences are made for Australian
+            conditions, offering UV resistance and protection against rotting,
+            warping, and rust. Every fence is backed by a limited lifetime
+            warranty and available in a wide range of styles including Privacy,
+            Semi privacy, Picket, Post and rail and more.
+        </p>
+        <Image
+            src={BCPFlogo}
+            alt="Big country pvc fencing partner logo"
+            class="image"
+        />
+        <div class="cta">
+            <p>
+                Explore the full range of <a href="/">Big Country PVC Fencing</a
+                > styles, colours, and gate options available for professional installation
+                on the Central Coast.
+            </p>
+            <Button href="/" type="primary"><CatalogIcon />View Catalog</Button>
+        </div>
+    </div>
+</section>
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .cta {
+        padding: 1rem;
+        box-shadow: var(--box-shadow);
+        border-radius: 3px;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .image {
+        margin: 1rem auto;
+    }
+
+    @media (min-width: 1024px) {
+        .container {
+            gap: 4rem;
+        }
+        .cta {
+            padding: 2rem;
+            gap: 2rem;
+        }
+    }
+
+    @media (min-width: 1440px) {
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        h2 {
+            grid-area: 1 / 1 / 2 / 3;
+        }
+        .cta {
+            grid-area: 3 / 1 / 4 / 3;
+            padding: 3rem;
+            text-align: center;
+            font-size: 1.15em;
+        }
+        .cta > :global(a) {
+            margin: 0px auto;
+        }
+    }
+</style>

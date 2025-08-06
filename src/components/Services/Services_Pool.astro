@@ -1,0 +1,84 @@
+---
+import { Image } from "astro:assets";
+import ServicesWhy from "./Services_Why.astro";
+import ServicesCTA from "./Services_CTA.astro";
+import PVCimage from "@images/pvc-pool-fencing-2.jpg";
+---
+
+<section class="section-dark">
+    <div class="container">
+        <h2>Pool-Safe PVC Fencing for Central Coast Backyards</h2>
+        <p>
+            Our pool fencing is made from durable PVC that meets Australian
+            safety standards while looking great around any outdoor area. With
+            smooth, non-climbable panels and rust-free materials, it’s a smart,
+            long-lasting choice for families wanting safety without sacrificing
+            style.
+        </p>
+        <Image
+            src={PVCimage}
+            alt="Safe Pool PVC fencing Central Coast NSW"
+            class="image"
+        />
+        <div class="why-list">
+            <ServicesWhy
+                title="Why Choose PVC Pool Fencing?"
+                whyList={[
+                    "Compliant and Child-Safe",
+                    "Low Maintenance",
+                    "Looks Great Around Any Pool",
+                ]}
+            />
+        </div>
+
+        <div class="cta">
+            <ServicesCTA
+                title="Upgrade to a Safer, Smarter Pool Fence"
+                text="Let our team help you secure your pool area with a compliant PVC fence built to last. Free quotes available across the Central Coast."
+            />
+        </div>
+    </div>
+</section>
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .image {
+        width: 100%;
+        height: 340px;
+        object-fit: cover;
+        border-radius: 3px;
+        box-shadow: var(--box-shadow);
+    }
+    .why-list,
+    .cta {
+        margin: 2rem 0px;
+    }
+    @media (min-width: 768px) {
+        .container {
+            gap: 4rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        h2 {
+            grid-area: 1 / 1 / 2 / 3;
+        }
+    }
+
+    @media (min-width: 1440px) {
+        .container {
+            column-gap: 6rem;
+        }
+        h2 {
+            margin-bottom: 2rem;
+        }
+    }
+</style>

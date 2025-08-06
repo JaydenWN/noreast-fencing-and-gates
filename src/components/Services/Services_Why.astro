@@ -1,0 +1,57 @@
+---
+interface Props {
+    whyList: string[];
+    title: string;
+}
+const { whyList, title } = Astro.props;
+import Checkmark from "@icons/checkmark-blue.svg";
+---
+
+<div class="why-box">
+    <h3>{title}</h3>
+
+    <ul>
+        {
+            whyList.map((reason) => (
+                <li>
+                    <Checkmark class="icon" />
+                    {reason}
+                </li>
+            ))
+        }
+    </ul>
+</div>
+
+<style>
+    h3 {
+        font-size: 1.5em;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1.35rem;
+    }
+    li {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+    .icon {
+        flex-shrink: 0;
+    }
+    .why-box {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    @media (min-width: 1024px) {
+        .why-box {
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            border-radius: 3px;
+            background-color: white;
+        }
+    }
+</style>

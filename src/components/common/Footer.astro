@@ -1,0 +1,127 @@
+---
+const today = new Date();
+import placeholder from "@images/logo.png";
+import { Image } from "astro:assets";
+---
+
+<footer>
+	<div class="footer-container">
+		<Image src={placeholder} alt="" class="image" />
+
+		<div class="links">
+			<div class="site-nav">
+				<h3>Site Navigation</h3>
+				<ul>
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/">PVC Fencing Options</a>
+					</li>
+					<li>
+						<a href="/">About</a>
+					</li>
+					<li>
+						<a href="/">Contact</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="contact-details">
+				<h3>Contact Details</h3>
+				<a href="tel:0405 105 855">0405 105 855</a>
+				<a href="mailto:">info@noreastfencingandgates.com</a>
+				<a href="https://abr.business.gov.au/ABN/View?abn=84515237212"
+					>84 515 237 212</a
+				>
+			</div>
+		</div>
+		<span class="beachside-link">
+			<a href="https://www.beachsidewebdesigns.com"
+				>&copy; {today.getFullYear()} Beachside Web Designs.</a
+			>
+		</span>
+	</div>
+</footer>
+
+<style>
+	footer {
+		background-color: var(--darkest-blue);
+	}
+	.footer-container {
+		padding: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+	}
+	.links {
+		display: flex;
+		flex-direction: column;
+		gap: 4rem;
+	}
+	.image {
+		width: 90px;
+		height: 90px;
+		object-fit: cover;
+	}
+	ul {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+	h3 {
+		font-size: 1.15rem;
+		margin-bottom: 1rem;
+		color: white;
+	}
+	a {
+		text-decoration: none;
+		font-family: "paragraph";
+		color: white;
+	}
+
+	.contact-details {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+	.beachside-link {
+		text-align: center;
+	}
+	.beachside-link a {
+		color: var(--orange);
+	}
+
+	@media (min-width: 768px) {
+		.footer-container {
+			padding: 4rem 4rem 1rem 4rem;
+		}
+		.site-nav {
+			grid-area: site-nav;
+		}
+		.social-links {
+			grid-area: social;
+		}
+		.contact-details {
+			grid-area: contact;
+		}
+		.links {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-template-areas:
+				"site-nav social"
+				"contact contact";
+		}
+	}
+	@media (min-width: 1024px) {
+		.links {
+			grid-template-columns: 250px 250px 250px;
+			grid-template-areas: "site-nav social contact";
+			margin-top: 2rem;
+		}
+		.contact-details a:first-of-type {
+			margin-bottom: 1rem;
+			display: block;
+		}
+	}
+</style>

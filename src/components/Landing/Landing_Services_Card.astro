@@ -1,0 +1,95 @@
+---
+import { Image } from "astro:assets";
+import Button from "../common/Button.astro";
+import MessageIcon from "@icons/quote-white.svg";
+
+const { title, text, image } = Astro.props;
+---
+
+<div class="service-card">
+    <Image src={image} alt="" class="image" />
+    <div class="text-content">
+        <h3>{title}</h3>
+        <p>{text}</p>
+
+        <Button href="/contact/#contact" type="primary"
+            ><MessageIcon />Request a quote</Button
+        >
+    </div>
+</div>
+
+<style>
+    .service-card {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--brand-blue);
+        color: white;
+        box-shadow: var(--box-shadow);
+        border-radius: 3px;
+    }
+    .text-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    h3 {
+        color: white;
+        font-size: 1.563em;
+    }
+    .image {
+        border-radius: 3px 3px 0px 0px;
+        height: 225px;
+        width: 100%;
+        object-fit: cover;
+    }
+    p {
+        margin-bottom: 1rem;
+    }
+
+    @media (min-width: 768px) {
+        h3 {
+            min-height: 60px;
+        }
+        .service-card {
+            width: calc(50% - 1rem);
+            box-sizing: border-box;
+        }
+        .service-card :global(a) {
+            margin-top: auto;
+        }
+        .text-content {
+            padding: 2rem;
+            height: 100%;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .service-card {
+            flex-direction: row;
+            width: 100%;
+            max-width: 865px;
+            margin: 0px auto;
+        }
+        .image {
+            height: auto;
+            min-width: 45%;
+        }
+        .text-content {
+            padding: 3rem;
+            box-sizing: border-box;
+        }
+    }
+
+    @media (min-width: 1440px) {
+        .service-card {
+            flex-direction: column;
+        }
+        .image {
+            height: 300px;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+</style>

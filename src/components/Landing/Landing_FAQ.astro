@@ -1,0 +1,73 @@
+---
+import { Image } from "astro:assets";
+import FAQ from "../common/FAQ.astro";
+import placeholder from "@images/faq-pvc-fencing.jpg";
+
+const qaObject = [
+    {
+        q: "Is PVC Fencing Worth It?",
+        a: "Yes — PVC fencing is a smart investment if you’re after low maintenance, long-term durability and clean modern style. It won’t rust, rot or fade, making it ideal for Australian conditions and coastal properties.",
+    },
+    {
+        q: "Is PVC Fencing Cheaper than Colorbond?",
+        a: "Upfront, PVC fencing is often a little less in cost to Colorbond. However, it usually works out cheaper over time as it doesn’t require repainting, rust treatment or ongoing maintenance.",
+    },
+    {
+        q: "How Long Will PVC Fencing Last?",
+        a: "High-quality PVC fencing, like the systems we install from Big Country PVC Fencing, lasts up to 50 years. It’s UV-resistant, termite-proof and won’t warp or crack — even in harsh Central Coast weather.",
+    },
+    {
+        q: "Is PVC Fencing Better Than Wood?",
+        a: "For most homeowners, yes. Unlike timber, PVC doesn’t require staining or sealing, won’t attract termites, and maintains its appearance for decades. It’s a great alternative if you want the look of wood without the hassle.",
+    },
+    {
+        q: "Can you Install ColorBond and Glass Fencing?",
+        a: "With years of fencing experience, Gary can install any type of fence. Simply call, or use the websites contact form to discuss your project.",
+    },
+];
+---
+
+<section>
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <FAQ qaObject={qaObject} class="faq" />
+        <Image src={placeholder} alt="" class="image" />
+    </div>
+</section>
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .image {
+        width: 100%;
+        object-fit: cover;
+        height: 340px;
+        border-radius: 3px;
+        box-shadow: var(--box-shadow);
+    }
+
+    @media (min-width: 768px) {
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas:
+                "title title"
+                "image faq";
+            gap: 2rem;
+        }
+        .image {
+            grid-area: image;
+        }
+        .faq {
+            grid-area: faq;
+        }
+        h2 {
+            grid-area: title;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+    }
+</style>

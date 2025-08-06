@@ -1,0 +1,80 @@
+---
+import { Image } from "astro:assets";
+import Button from "../common/Button.astro";
+import PhoneIcon from "@icons/phone-dark.svg";
+import QuoteIcon from "@icons/quote-white.svg";
+import ctaImage from "@images/full-privacy-contact.JPG";
+---
+
+<section>
+    <div class="container">
+        <h2>Why More Central Coast Homes Are Choosing PVC Fencing</h2>
+        <p>
+            PVC fencing is fast becoming the top choice for homeowners across
+            the Central Coast, and for good reason! It’s low-maintenance,
+            long-lasting, and looks great year after year. Unlike timber or
+            metal, <strong>it won’t rot, rust, or need repainting.</strong> At Noreast
+            Fencing and Gates, we supply and install premium PVC fencing that’s built
+            to handle Aussie conditions.
+        </p>
+        <Image
+            src={ctaImage}
+            alt="full privacy pvc fencing on the central coast"
+            class="image"
+        />
+        <div class="cta-buttons">
+            <Button href="tel:0405 105 855" type="secondary"
+                ><PhoneIcon />Call Us</Button
+            >
+            <Button href="/contact/#contact" type="primary"
+                ><QuoteIcon />Request a quote</Button
+            >
+        </div>
+    </div>
+</section>
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+    .image {
+        width: 100%;
+        height: auto;
+        border-radius: 3px;
+        box-shadow: var(--box-shadow);
+    }
+
+    @media (min-width: 768px) {
+        .container {
+            gap: 4rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .container > h2 {
+            grid-area: 1 / 1 / 2 / 3;
+        }
+        .cta-buttons {
+            justify-content: flex-start;
+        }
+        .image {
+            grid-area: 2 / 2 / 4 / 3;
+            object-fit: cover;
+            height: 100%;
+        }
+    }
+    @media (min-width: 1440px) {
+    }
+</style>

@@ -1,0 +1,76 @@
+---
+import LandingContact from "../components/Landing/Landing_Contact.astro";
+import LandingFAQ from "../components/Landing/Landing_FAQ.astro";
+import LandingHero1 from "../components/Landing/Landing_Hero_1.astro";
+import LandingMeet from "../components/Landing/Landing_Meet.astro";
+import LandingServices from "../components/Landing/Landing_Services.astro";
+import LandingTestimonials from "../components/Landing/Landing_Testimonials.astro";
+import LandingValues from "../components/Landing/Landing_Values.astro";
+import LandingWhy from "../components/Landing/Landing_Why.astro";
+import Layout from "../layouts/Base_Layout.astro";
+---
+
+<Layout
+	title="PVC Fencing Central Coast | Noreast Fencing and Gates"
+	description="Noreast Fencing and Gates are your local PVC fencing experts on the Central Coast. We install premium Big Country PVC fences with clean, precise workmanship and honest service."
+>
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "LocalBusiness",
+			"name": "Noreast Fencing and Gates",
+			"image": "https://noreastfencing.com.au/logo.png",
+			"url": "https://pvcfencingcentralcoast.com/",
+			"@id": "https://pvcfencingcentralcoast.com/",
+			"telephone": "0405 105 855",
+			"description": "Noreast Fencing and Gates is a local Central Coast business specialising in professional PVC fencing installations using high-quality Big Country PVC products.",
+			"address": {
+				"@type": "PostalAddress",
+				"addressLocality": "Central Coast",
+				"addressRegion": "NSW",
+				"postalCode": "2250",
+				"addressCountry": "AU"
+			},
+
+			"openingHoursSpecification": [
+				{
+					"@type": "OpeningHoursSpecification",
+					"dayOfWeek": [
+						"Monday",
+						"Tuesday",
+						"Wednesday",
+						"Thursday",
+						"Friday"
+					],
+					"opens": "07:00",
+					"closes": "17:00"
+				}
+			],
+			"areaServed": [
+				{ "@type": "Place", "name": "Springfield NSW" },
+				{ "@type": "Place", "name": "East Gosford NSW" },
+				{ "@type": "Place", "name": "Wyoming NSW" },
+				{ "@type": "Place", "name": "Narara NSW" },
+				{ "@type": "Place", "name": "Point Clare NSW" },
+				{ "@type": "Place", "name": "Wadalba NSW" },
+				{ "@type": "Place", "name": "Tuggerah NSW" },
+				{ "@type": "Place", "name": "Hamlyn Terrace NSW" },
+				{ "@type": "Place", "name": "Kanwal NSW" },
+				{ "@type": "Place", "name": "Berkeley Vale NSW" },
+				{ "@type": "Place", "name": "Wamberal NSW" },
+				{ "@type": "Place", "name": "Avoca Beach NSW" },
+				{ "@type": "Place", "name": "North Avoca NSW" },
+				{ "@type": "Place", "name": "Erina NSW" },
+				{ "@type": "Place", "name": "Matcham NSW" }
+			]
+		}
+	</script>
+	<LandingHero1 />
+	<LandingMeet />
+	<LandingValues />
+	<LandingWhy />
+	<LandingServices />
+	<LandingFAQ />
+	<LandingTestimonials />
+	<LandingContact />
+</Layout>

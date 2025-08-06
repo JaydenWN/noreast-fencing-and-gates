@@ -1,0 +1,85 @@
+---
+import { Image } from "astro:assets";
+import ServicesWhy from "./Services_Why.astro";
+import ServicesCTA from "./Services_CTA.astro";
+import PVCimage from "@images/pvc-post-rail-fencing-2.jpg";
+---
+
+<section>
+    <div class="container">
+        <h2>Strong and Stylish Post and Rail PVC Fencing</h2>
+        <p>
+            Post and rail PVC fencing is a classic choice for larger properties,
+            rural blocks, paddocks, or front boundaries. It offers open
+            visibility with clean lines and strong structure, all made from
+            UV-resistant PVC that won’t rot, splinter or require repainting.
+            It’s a practical, long-term solution for anyone needing to define
+            property lines or contain animals.
+        </p>
+        <Image
+            src={PVCimage}
+            alt="Rural Post and Rail PVC fencing central coast"
+            class="image"
+        />
+        <div class="why-list">
+            <ServicesWhy
+                title="Why Choose Post and Rail PVC Fencing?"
+                whyList={[
+                    "Great for Acreage and Large Blocks",
+                    "Low-Maintenance and Long-Lasting",
+                    "Safe for Pets and Livestock",
+                ]}
+            />
+        </div>
+
+        <div class="cta">
+            <ServicesCTA
+                title="Need Strong, Rural-Style Fencing That Lasts?"
+                text="Ask our team about post and rail fencing options for your Central Coast property. We'll provide expert advice and a free, no-obligation quote."
+            />
+        </div>
+    </div>
+</section>
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .image {
+        width: 100%;
+        height: 340px;
+        object-fit: cover;
+        border-radius: 3px;
+        box-shadow: var(--box-shadow);
+    }
+    .why-list,
+    .cta {
+        margin: 2rem 0px;
+    }
+    @media (min-width: 768px) {
+        .container {
+            gap: 4rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        h2 {
+            grid-area: 1 / 1 / 2 / 3;
+        }
+    }
+
+    @media (min-width: 1440px) {
+        .container {
+            column-gap: 6rem;
+        }
+        h2 {
+            margin-bottom: 2rem;
+        }
+    }
+</style>

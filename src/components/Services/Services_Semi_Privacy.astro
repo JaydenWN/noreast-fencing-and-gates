@@ -1,0 +1,84 @@
+---
+import { Image } from "astro:assets";
+import ServicesWhy from "./Services_Why.astro";
+import ServicesCTA from "./Services_CTA.astro";
+import PVCimage from "@images/semi-privacy.JPG";
+---
+
+<section class="section-dark">
+    <div class="container">
+        <h2>Semi-Privacy PVC Fencing with Light, Air and Protection</h2>
+        <p>
+            Semi-privacy PVC fencing offers the perfect balance of visibility
+            and seclusion. With small gaps between each vertical panel, this
+            style allows light and airflow while still creating a clear boundary
+            and added privacy. It’s ideal for side boundaries, gardens, or in
+            areas where you want privacy without feeling boxed in.
+        </p>
+        <Image
+            src={PVCimage}
+            alt="Semi-privacy pvc fencing central coast"
+            class="image"
+        />
+        <div class="why-list">
+            <ServicesWhy
+                title="Why Choose Semi-Privacy PVC Fencing?"
+                whyList={[
+                    "Let’s Light and Airflow Through",
+                    "Stylish Yet Functional",
+                    "Great for Shared Boundaries",
+                ]}
+            />
+        </div>
+
+        <div class="cta">
+            <ServicesCTA
+                title="Looking for a Privacy Fence That Still Breathes?"
+                text="Speak with our team about customising a semi-privacy PVC fence to suit your space. We install across all Central Coast suburbs."
+            />
+        </div>
+    </div>
+</section>
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .image {
+        width: 100%;
+        height: 340px;
+        object-fit: cover;
+        border-radius: 3px;
+        box-shadow: var(--box-shadow);
+    }
+    .why-list,
+    .cta {
+        margin: 2rem 0px;
+    }
+    @media (min-width: 768px) {
+        .container {
+            gap: 4rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        h2 {
+            grid-area: 1 / 1 / 2 / 3;
+        }
+    }
+
+    @media (min-width: 1440px) {
+        .container {
+            column-gap: 6rem;
+        }
+        h2 {
+            margin-bottom: 2rem;
+        }
+    }
+</style>

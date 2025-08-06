@@ -1,0 +1,103 @@
+---
+import PhoneIcon from "@icons/phone-square.svg";
+import EmailIcon from "@icons/email-square.svg";
+import ABNIcon from "@icons/abn-square.svg";
+---
+
+<section class="section-dark">
+    <div class="container">
+        <h2>Contact Noreast Fencing and Gates Directly</h2>
+        <p>
+            Prefer to speak with someone directly? Give us a call or send an
+            email. We’re always happy to help. Whether you need expert advice,
+            want to discuss your fencing needs, or are ready to book in a quote,
+            we’re just a message away.
+        </p>
+
+        <div class="contact-info">
+            <div class="info-card">
+                <div class="card-header">
+                    <PhoneIcon />
+                    <h3>Phone</h3>
+                </div>
+                <a href="tel:0405 105 855">0405 105 855</a>
+            </div>
+
+            <div class="info-card">
+                <div class="card-header">
+                    <EmailIcon />
+                    <h3>Email</h3>
+                </div>
+                <a href="mailto:">info@noreastfencingandgates.com</a>
+            </div>
+
+            <div class="info-card">
+                <div class="card-header">
+                    <ABNIcon />
+                    <h3>ABN</h3>
+                </div>
+                <a href="https://abr.business.gov.au/ABN/View?abn=84515237212"
+                    >84 515 237 212</a
+                >
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .info-card {
+        padding: 1rem;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        border-radius: 3px;
+        box-shadow: var(--box-shadow);
+    }
+    .card-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .card-header h3 {
+        font-size: 1.25em;
+    }
+
+    @media (min-width: 768px) {
+        .container {
+            gap: 4rem;
+        }
+        .contact-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .info-card {
+            padding: 2rem;
+            gap: 2rem;
+        }
+        .info-card:nth-last-of-type(2) {
+            grid-area: 2 / 1 / 3 / 3;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .contact-info {
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+        }
+        .info-card:nth-last-of-type(2) {
+            grid-area: auto;
+        }
+    }
+</style>

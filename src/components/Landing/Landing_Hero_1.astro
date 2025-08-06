@@ -1,0 +1,88 @@
+---
+import { Image } from "astro:assets";
+import Button from "../common/Button.astro";
+import heroImage from "@images/pvc-fencing-hero.webp";
+import PhoneIcon from "@icons/call-white.svg";
+import QuoteIcon from "@icons/quote-white.svg";
+---
+
+<header>
+    <Image src={heroImage} alt="title" class="hero-image" />
+    <div class="container">
+        <h1>The Central Coast PVC Fencing Experts</h1>
+        <p class="sub-title">
+            Built to last <strong>50 years</strong> and beyond
+        </p>
+        <p>
+            Noreast Fencing and Gates installs high-quality, <strong
+                >low-maintenance</strong
+            > PVC fencing that’s built to last
+            <strong> 50 years and beyond</strong> in Australian conditions.
+        </p>
+        <div class="cta-buttons">
+            <Button href="tel:0405 105 855" type="secondary-dark"
+                ><PhoneIcon />Call Us</Button
+            >
+            <Button href="/contact/#contact" type="primary"
+                ><QuoteIcon />Request a quote</Button
+            >
+        </div>
+    </div>
+</header>
+
+<style>
+    header {
+        position: relative;
+        color: white;
+    }
+    .hero-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+    .container {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    h1 {
+        font-size: 3em;
+        color: white;
+        text-transform: uppercase;
+    }
+    .sub-title {
+        font-size: 1.25em;
+        margin-bottom: 1rem;
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+        h1 {
+            width: 75%;
+        }
+        p {
+            width: 80%;
+        }
+        .container {
+            gap: 3rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .container {
+            gap: 4rem;
+        }
+        h1,
+        p {
+            max-width: 600px;
+        }
+    }
+</style>

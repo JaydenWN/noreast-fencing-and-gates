@@ -1,0 +1,128 @@
+---
+import SubHero from "../components/common/Sub_Hero.astro";
+import ServicesFullPrivacy from "../components/Services/Services_Full_Privacy.astro";
+import ServicesSemiPrivacy from "../components/Services/Services_Semi_Privacy.astro";
+import ServicesPicket from "../components/Services/Services_Picket.astro";
+import ServicesSlat from "../components/Services/Services_Slat.astro";
+import ServicesPost from "../components/Services/Services_Post.astro";
+import ServicesPool from "../components/Services/Services_Pool.astro";
+import ServicesPartner from "../components/Services/Services_Partner.astro";
+import ServicesProcess from "../components/Services/Services_Process.astro";
+import ServicesContact from "../components/Services/Services_Contact.astro";
+import Layout from "../layouts/Base_Layout.astro";
+---
+
+<Layout
+    title="Types of PVC Fencing We Install | Central Coast PVC Fence Experts"
+    description="Discover the full range of PVC fencing styles we install across the Central Coast. From modern slat fencing to classic picket and full privacy options, all made with Big Country PVC."
+>
+    <script type="application/ld+json" slot="head">
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "PVC Fencing Installation",
+            "provider": {
+                "@type": "LocalBusiness",
+                "name": "Noreast Fencing and Gates",
+                "image": "https://noreastfencing.com.au/path-to-your-logo-or-image.jpg",
+                "url": "https://noreastfencing.com.au/pvc-fencing",
+                "telephone": "+61 400 000 000",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Your Business Address",
+                    "addressLocality": "Central Coast",
+                    "addressRegion": "NSW",
+                    "postalCode": "2250",
+                    "addressCountry": "AU"
+                },
+                "areaServed": [
+                    { "@type": "Place", "name": "Springfield NSW" },
+                    { "@type": "Place", "name": "East Gosford NSW" },
+                    { "@type": "Place", "name": "Wyoming NSW" },
+                    { "@type": "Place", "name": "Narara NSW" },
+                    { "@type": "Place", "name": "Point Clare NSW" },
+                    { "@type": "Place", "name": "Wadalba NSW" },
+                    { "@type": "Place", "name": "Tuggerah NSW" },
+                    { "@type": "Place", "name": "Hamlyn Terrace NSW" },
+                    { "@type": "Place", "name": "Kanwal NSW" },
+                    { "@type": "Place", "name": "Berkeley Vale NSW" },
+                    { "@type": "Place", "name": "Wamberal NSW" },
+                    { "@type": "Place", "name": "Avoca Beach NSW" },
+                    { "@type": "Place", "name": "North Avoca NSW" },
+                    { "@type": "Place", "name": "Erina NSW" },
+                    { "@type": "Place", "name": "Matcham NSW" }
+                ]
+            },
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "PVC Fencing Styles",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Product",
+                            "name": "Picket PVC Fencing",
+                            "description": "Traditional picket look with modern, maintenance-free PVC construction."
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Product",
+                            "name": "Pool PVC Fencing",
+                            "description": "Child-safe, regulation-compliant fencing for pools made from durable PVC."
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Product",
+                            "name": "Semi-Privacy PVC Fencing",
+                            "description": "Allows airflow and light while maintaining privacy between properties."
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Product",
+                            "name": "Full Privacy PVC Fencing",
+                            "description": "Solid panel fencing ideal for full seclusion and wind protection."
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Product",
+                            "name": "Slat PVC Fencing",
+                            "description": "Modern horizontal slat-style PVC fencing with customisable spacing."
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Product",
+                            "name": "Post and Rail PVC Fencing",
+                            "description": "Rural-style fencing perfect for large blocks, paddocks, and acreage."
+                        }
+                    }
+                ]
+            },
+            "description": "Noreast Fencing and Gates offers professional PVC fencing installation across the Central Coast. Choose from picket, pool, privacy, slat and post and rail styles using Big Country Fencing products. Free quotes available."
+        }
+    </script>
+    <SubHero
+        title="PVC Fencing Installation on the Central Coast"
+        text="Looking for a fence that lasts a lifetime with zero maintenance? Noreast Fencing and Gates installs high-quality PVC fencing across the Central Coast, built for coastal conditions and backed by a 50 year warranty. Choose from a wide range of styles, including picket, privacy, slat and more. You picket we install it!"
+    >
+        Trusted Local Installers of Big Country PVC Fencing</SubHero
+    >
+    <ServicesPartner />
+    <ServicesProcess />
+    <ServicesFullPrivacy />
+    <ServicesSemiPrivacy />
+    <ServicesPicket />
+    <ServicesSlat />
+    <ServicesPost />
+    <ServicesPool />
+    <ServicesContact />
+</Layout>

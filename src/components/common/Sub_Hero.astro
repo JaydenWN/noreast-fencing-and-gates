@@ -1,0 +1,71 @@
+---
+const { title, slot, text } = Astro.props;
+import Button from "../common/Button.astro";
+import PhoneIcon from "@icons/call-white.svg";
+import QuoteIcon from "@icons/quote-white.svg";
+---
+
+<header>
+    <div class="container">
+        <h1>{title}</h1>
+        <p class="subtitle">
+            <slot />
+        </p>
+        <p>
+            {text}
+        </p>
+        <div class="cta-buttons">
+            <Button href="tel:0405 105 855" type="secondary-dark"
+                ><PhoneIcon />Call Us</Button
+            >
+            <Button href="/contact/#contact" type="primary"
+                ><QuoteIcon />Request a quote</Button
+            >
+        </div>
+    </div>
+</header>
+
+<style>
+    header {
+        background-color: var(--dark-blue);
+        color: white;
+    }
+    .subtitle {
+        font-size: 1.2em;
+        margin-top: -1rem;
+        line-height: 100%;
+    }
+    h1 {
+        color: white;
+        text-transform: uppercase;
+        line-height: 100%;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+        .container {
+            gap: 4rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .subtitle {
+            font-size: 1.35rem;
+        }
+    }
+
+    @media (min-width: 1440px) {
+        .container > p:last-of-type {
+            width: 60%;
+        }
+    }
+</style>

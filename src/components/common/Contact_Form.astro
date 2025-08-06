@@ -1,0 +1,92 @@
+---
+import SendIcon from "@icons/send-white.svg";
+---
+
+<form action="" id="contact">
+    <div class="input-area">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required autocomplete="name" />
+    </div>
+
+    <div class="input-area">
+        <label for="email">Email</label>
+        <input
+            type="email"
+            name="email"
+            id="email"
+            required
+            autocomplete="email"
+        />
+    </div>
+
+    <div class="input-area">
+        <label for="phone">Phone</label>
+        <input type="tel" name="phone" id="phone" required autocomplete="tel" />
+    </div>
+
+    <div class="input-area">
+        <label for="message">Message</label>
+        <textarea rows="12" name="message" id="message" required></textarea>
+    </div>
+
+    <button><SendIcon />Send Message</button>
+</form>
+
+<style>
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        background-color: var(--brand-blue);
+        padding: 1rem;
+        color: white;
+        border-radius: 3px;
+        box-shadow: var(--box-shadow);
+    }
+    .input-area {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    input,
+    textarea {
+        font-size: 1em;
+        padding: 0.5rem;
+        font-family: "paragraph";
+    }
+    textarea {
+        resize: none;
+    }
+
+    button {
+        display: flex;
+        gap: 0.65rem;
+        border-radius: 3px;
+        padding: 0.5rem 1rem;
+        color: white;
+        background-color: var(--orange);
+        text-decoration: none;
+        align-items: center;
+        width: fit-content;
+        border: 1px solid var(--orange);
+        font-family: "paragraph";
+        box-shadow: var(--box-shadow);
+        font-size: 1em;
+    }
+
+    @media (min-width: 1024px) {
+        button {
+            transition: background-color 0.15s ease;
+        }
+        button:hover {
+            cursor: pointer;
+            background-color: #ff8a36;
+        }
+    }
+
+    @media (min-width: 1440px) {
+        form {
+            padding: 2rem;
+        }
+    }
+</style>
