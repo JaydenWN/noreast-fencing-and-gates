@@ -1,0 +1,96 @@
+---
+const { content } = Astro.props;
+---
+
+<section>
+    <div class="container">
+        <article set:html={content} />
+    </div>
+</section>
+
+<style>
+    article {
+        padding:;
+    }
+
+    article :global(strong) {
+        font-weight: bold;
+    }
+    article :global(ul) {
+        list-style-type: disc;
+        margin-left: 2rem;
+        margin: 1rem 0px 1rem 2rem;
+    }
+
+    article :global(h2:not(:first-child)) {
+        margin-top: 4rem;
+        margin-bottom: 1rem;
+    }
+
+    article :global(h2:first-of-type) {
+        margin-bottom: 1rem;
+    }
+
+    article :global(h3, h4, h5, h6) {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    article :global(blockquote) {
+        background-color: var(--background-blue);
+        padding: 1rem;
+        border-left: 1rem solid var(--brand-blue);
+        margin: 2rem 0px;
+    }
+
+    article :global(ol) {
+        list-style-type: decimal;
+        margin-left: 2rem;
+        margin: 1rem 0px 1rem 2rem;
+    }
+
+    article :global(img) {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 3px;
+        box-shadow: var(--box-shadow);
+        margin: 2rem 0px;
+    }
+
+    article :global(p) {
+        margin-bottom: 1rem;
+    }
+
+    @media (min-width: 768px) {
+        article :global(h2:not(:first-child)) {
+            margin-top: 6rem;
+            margin-bottom: 1rem;
+        }
+
+        article :global(h3, h4, h5, h6) {
+            margin-top: 6rem;
+            margin-bottom: 1rem;
+        }
+
+        article :global(img) {
+            width: 60%;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        article :global(h2:not(:first-child)) {
+            margin-top: 8rem;
+            margin-bottom: 2rem;
+        }
+
+        article :global(h3, h4, h5, h6) {
+            margin-top: 8rem;
+            margin-bottom: 2rem;
+        }
+        article :global(img) {
+            width: 50%;
+            background-color: green;
+        }
+    }
+</style>

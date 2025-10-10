@@ -1,0 +1,65 @@
+---
+import { contentfulClient } from "../../lib/contentful";
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import type { BlogPost } from "../../lib/contentful";
+import BaseLayout from "../../layouts/Base_Layout.astro";
+import BlogHero from "../../components/Blog/Blog_Hero.astro";
+import BlogArticle from "../../components/Blog/Blog_Article.astro";
+import BlogArticleContact from "../../components/Blog/Blog_Article_Contact.astro";
+
+export async function getStaticPaths() {
+    const entries = await contentfulClient.getEntries<BlogPost>({
+        content_type: "blogPost",
+        include: 10, // important for embedded assets
+    });
+
+    const pages = entries.items.map((item) => {
+        const html = documentToHtmlString(item.fields.article, {
+            renderNode: {
+                // render embedded images
+                ["embedded-asset-block"]: (node: any) => {
+                    const file = node?.data?.target?.fields?.file;
+                    const title = node?.data?.target?.fields?.title ?? "";
+                    const desc = node?.data?.target?.fields?.description ?? "";
+                    const url = file?.url
+                        ? file.url.startsWith("//")
+                            ? `https:${file.url}`
+                            : file.url
+                        : "";
+                    if (!url) return "";
+                    return `<img src="${url}?w=1600&q=80&fm=webp" alt="${desc || title}" loading="lazy">`;
+                },
+            },
+        });
+
+        return {
+            params: { slug: item.fields.slug },
+            props: {
+                title: item.fields.title,
+                content: html, // ✅ now includes <img> tags
+                date: new Date(item.fields.date).toLocaleDateString(),
+                previewImage: item.fields.previewImage,
+                description: item.fields.description,
+            },
+        };
+    });
+
+    return pages;
+}
+const { content, title, date, previewImage, description } = Astro.props;
+console.log(previewImage.fields.file.details);
+---
+
+<BaseLayout>
+    <BlogHero
+        title={title}
+        date={date}
+        image={previewImage.fields.file.url}
+        width={previewImage.fields.file.details.image.width}
+        height={previewImage.fields.file.details.image.height}
+        description={description}
+    />
+
+    <BlogArticle content={content} />
+    <BlogArticleContact />
+</BaseLayout>

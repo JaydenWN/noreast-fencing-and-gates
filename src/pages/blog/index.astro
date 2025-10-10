@@ -1,0 +1,57 @@
+---
+
+import SubHero from "../../components/common/Sub_Hero.astro";
+import Layout from "../../layouts/Base_Layout.astro";
+import BlogLatest from '../../components/Blog/Blog_Latest.astro'
+import BlogContact from '../../components/Blog/Blog_Contact.astro'
+
+import { contentfulClient } from "../../lib/contentful";
+import type { BlogPost } from "../../lib/contentful";
+
+const entries = await contentfulClient.getEntries<BlogPost>({
+  content_type: "blogPost",
+});
+
+const posts = entries.items.map((item) => {
+  const { title, date, description, slug, previewImage } = item.fields;
+  return {
+    title,
+    slug,
+    description,
+    date: new Date(date),
+    previewImage
+  };
+});
+
+// Sort by date (newest first)
+const sortedPosts = posts.sort((a, b) => b.date.getTime() - a.date.getTime());
+
+---
+
+<Layout
+	title="PVC Fencing Central Coast | Noreast Fencing and Gates"
+	description="Noreast Fencing and Gates are your local PVC fencing experts on the Central Coast. We install premium Big Country PVC fences with clean, precise workmanship and honest service."
+>
+	<script type="application/ld+json" slot="head">
+	
+	</script>
+
+    <SubHero 
+        title="Fencing Inspiration, Expert Tips and Our Latest Jobs on the Central Coast"
+        text="Welcome to the Noreast Fencing and Gates blog, your go-to place for PVC fencing ideas, expert advice, and a look behind the scenes at our latest installations. Whether you’re comparing fencing styles, learning about maintenance, or searching for inspiration, you’ll find plenty of real projects and expert insights from the team right here."/>
+
+    <BlogLatest blogPosts={sortedPosts}/>
+    <BlogContact/>
+ <!-- <h1>My Blog</h1>
+    <ul>
+      {posts.map((post) => (
+        <li>
+          <a href={`/posts/${post.slug}/`}>
+            <h2>{post.title}</h2>
+          </a>
+          <time>{post.date}</time>
+          <p>{post.description}</p>
+        </li>
+      ))}
+    </ul> -->
+</Layout>

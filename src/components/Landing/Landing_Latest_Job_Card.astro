@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+import Button from "../common/Button.astro";
+const { post } = Astro.props;
+---
+
+<div class="card">
+    <Image
+        src={post.previewImage.fields.file.url}
+        alt={post.title}
+        width={300}
+        height={200}
+        class="image"
+    />
+    <h3>{post.title}</h3>
+
+    {
+        post.description.length > 169 ? (
+            <p>{post.description.slice(0, 169)}...</p>
+        ) : (
+            <p>{post.description}</p>
+        )
+    }
+    <Button href=`/blog/${post.slug}` type="primary">Read More</Button>
+</div>
+
+<style>
+    .card {
+        padding: 1rem;
+        background-color: var(--background-blue);
+        border-radius: 3px;
+        box-shadow: var(--box-shadow);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .card h3 {
+        font-size: 1.26em;
+    }
+    .image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 3px;
+        box-shadow: var(--box-shadow);
+    }
+</style>
