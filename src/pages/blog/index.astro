@@ -1,9 +1,8 @@
 ---
-
 import SubHero from "../../components/common/Sub_Hero.astro";
 import Layout from "../../layouts/Base_Layout.astro";
-import BlogLatest from '../../components/Blog/Blog_Latest.astro'
-import BlogContact from '../../components/Blog/Blog_Contact.astro'
+import BlogLatest from "../../components/Blog/Blog_Latest.astro";
+import BlogContact from "../../components/Blog/Blog_Contact.astro";
 
 import { contentfulClient } from "../../lib/contentful";
 import type { BlogPost } from "../../lib/contentful";
@@ -19,39 +18,116 @@ const posts = entries.items.map((item) => {
     slug,
     description,
     date: new Date(date),
-    previewImage
+    previewImage,
   };
 });
 
 // Sort by date (newest first)
 const sortedPosts = posts.sort((a, b) => b.date.getTime() - a.date.getTime());
-
 ---
 
 <Layout
-	title="PVC Fencing Central Coast | Noreast Fencing and Gates"
-	description="Noreast Fencing and Gates are your local PVC fencing experts on the Central Coast. We install premium Big Country PVC fences with clean, precise workmanship and honest service."
+  title="PVC Fencing Blog | Central Coast Projects & Expert Tips"
+  description="Explore our latest PVC fencing and gate projects across the Central Coast. Get expert installation tips, ideas, and inspiration from Noreast Fencing and Gates."
 >
-	<script type="application/ld+json" slot="head">
-	
-	</script>
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "FenceContractor",
+          "@id": "https://pvcfencingcentralcoast.com",
+          "name": "Noreast Fencing and Gates",
+          "url": "https://pvcfencingcentralcoast.com",
+          "telephone": "0405 105 855",
+          "email": "info@pvcfencingcentralcoast.com",
+          "image": "https://pvcfencingcentralcoast.com/logo.png",
+          "logo": "https://pvcfencingcentralcoast.com/logo.png",
+          "description": "PVC fencing and gates on the Central Coast. Professional installation of Big Country Fencing products with reliable service and clear pricing.",
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Central Coast NSW"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Central Coast",
+            "addressRegion": "NSW",
+            "postalCode": "2250",
+            "addressCountry": "AU"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://pvcfencingcentralcoast/#website",
+          "url": "https://pvcfencingcentralcoast/",
+          "name": "Noreast Fencing and Gates",
+          "publisher": {
+            "@id": "https://pvcfencingcentralcoast/#org"
+          },
+          "inLanguage": "en-AU"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://pvcfencingcentralcoast/blog/#webpage",
+          "url": "https://pvcfencingcentralcoast/blog/",
+          "name": "Fencing Blog | PVC Fence Inspiration and Projects | Noreast Fencing and Gates",
+          "isPartOf": {
+            "@id": "https://pvcfencingcentralcoast/#website"
+          },
+          "about": {
+            "@id": "https:/pvcfencingcentralcoast/#org"
+          },
+          "description": "Explore PVC fencing ideas, expert tips and our latest Central Coast installations. See real projects and learn what to consider for your fence and gate.",
+          "inLanguage": "en-AU",
+          "breadcrumb": {
+            "@id": "https:/pvcfencingcentralcoast/blog/#breadcrumb"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://pvcfencingcentralcoast.com/logo.png"
+          }
+        },
+        {
+          "@type": "Blog",
+          "@id": "https://pvcfencingcentralcoast/blog/#blog",
+          "url": "https://pvcfencingcentralcoast/blog/",
+          "name": "Noreast Fencing and Gates Blog",
+          "description": "PVC fencing inspiration, installation guides and recent jobs across the Central Coast.",
+          "publisher": {
+            "@id": "https://pvcfencingcentralcoast/#org"
+          },
+          "isPartOf": {
+            "@id": "https://pvcfencingcentralcoast/blog/#webpage"
+          },
+          "inLanguage": "en-AU"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://pvcfencingcentralcoast/blog/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://pvcfencingcentralcoast/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://pvcfencingcentralcoast/blog/"
+            }
+          ]
+        }
+      ]
+    }
+  </script>
 
-    <SubHero 
-        title="Fencing Inspiration, Expert Tips and Our Latest Jobs on the Central Coast"
-        text="Welcome to the Noreast Fencing and Gates blog, your go-to place for PVC fencing ideas, expert advice, and a look behind the scenes at our latest installations. Whether you’re comparing fencing styles, learning about maintenance, or searching for inspiration, you’ll find plenty of real projects and expert insights from the team right here."/>
+  <SubHero
+    title="Fencing Inspiration, Expert Tips and Our Latest Jobs on the Central Coast"
+    text="Welcome to the Noreast Fencing and Gates blog, your go-to place for PVC fencing ideas, expert advice, and a look behind the scenes at our latest installations. Whether you’re comparing fencing styles, learning about maintenance, or searching for inspiration, you’ll find plenty of real projects and expert insights from the team right here."
+  />
 
-    <BlogLatest blogPosts={sortedPosts}/>
-    <BlogContact/>
- <!-- <h1>My Blog</h1>
-    <ul>
-      {posts.map((post) => (
-        <li>
-          <a href={`/posts/${post.slug}/`}>
-            <h2>{post.title}</h2>
-          </a>
-          <time>{post.date}</time>
-          <p>{post.description}</p>
-        </li>
-      ))}
-    </ul> -->
+  <BlogLatest blogPosts={sortedPosts} />
+  <BlogContact />
 </Layout>

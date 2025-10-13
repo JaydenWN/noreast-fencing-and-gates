@@ -4,11 +4,21 @@ import Footer from "../components/common/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Navigation from "../components/common/Navigation.astro";
 
-const { title, description } = Astro.props;
+const { title, description, jsonLd } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
+		{
+			jsonLd ? (
+				<script
+					type="application/ld+json"
+					set:html={JSON.stringify(jsonLd)}
+				/>
+			) : (
+				""
+			)
+		}
 		<BaseHead title={title} description={description} />
 		<slot name="head" />
 	</head>

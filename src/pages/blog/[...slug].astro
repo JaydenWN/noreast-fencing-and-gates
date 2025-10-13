@@ -47,10 +47,50 @@ export async function getStaticPaths() {
     return pages;
 }
 const { content, title, date, previewImage, description } = Astro.props;
-console.log(previewImage.fields.file.details);
+
+// 2) Fetch this specific post by slug
+const rawSlug = Astro.params.slug as string; // "[...slug]" still gives you the string "my-post"
+const entries = await contentfulClient.getEntries<BlogPost>({
+    content_type: "blogPost",
+    "fields.slug": rawSlug,
+    include: 2, // include embedded assets for rich text
+    limit: 1,
+});
+
+// 4) SEO bits
+// Hero image (Contentful asset)
+const heroFile = previewImage?.fields?.file;
+const heroUrl = heroFile?.url
+    ? heroFile.url.startsWith("http")
+        ? heroFile.url
+        : `https:${heroFile.url}`
+    : null;
+
+const publishedISO = new Date(date).toISOString();
+const displayDate = new Date(date).toLocaleDateString("en-AU", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+});
+const canonical = Astro.site
+    ? new URL(`/blog/${rawSlug}`, Astro.site).toString()
+    : `/blog/${rawSlug}`;
+
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    description,
+    datePublished: publishedISO,
+    dateModified: publishedISO,
+    image: heroUrl ? [heroUrl] : undefined,
+    mainEntityOfPage: canonical,
+    author: { "@type": "Person", name: "Gary Coleman" },
+    publisher: { "@type": "Organization", name: "Noreast Fencing & Gates" },
+};
 ---
 
-<BaseLayout>
+<BaseLayout jsonLd={jsonLd} title={title} description={description}>
     <BlogHero
         title={title}
         date={date}
