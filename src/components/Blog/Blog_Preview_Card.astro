@@ -39,9 +39,16 @@ const { post } = Astro.props;
     }
     .image {
         width: 100%;
-        height: auto;
+        height: 200px;
         object-fit: cover;
         border-radius: 3px;
         box-shadow: var(--box-shadow);
+    }
+    @media (min-width: 768px) {
+        .card {
+            display: grid;
+            grid-template-rows: subgrid;
+            grid-row: span 4;
+        }
     }
 </style>
