@@ -5,15 +5,7 @@ import SendIcon from "@icons/send-white.svg";
 <form id="contact" name="contact" method="POST" data-netlify="true">
     <div class="input-area">
         <label for="name">Name</label>
-        <input
-            type="text"
-            name="name"
-            id="name"
-            required
-            autocomplete="name"
-            disabled
-            aria-disabled="true"
-        />
+        <input type="text" name="name" id="name" required autocomplete="name" />
     </div>
 
     <div class="input-area">
@@ -24,46 +16,23 @@ import SendIcon from "@icons/send-white.svg";
             id="email"
             required
             autocomplete="email"
-            disabled
-            aria-disabled="true"
         />
     </div>
 
     <div class="input-area">
         <label for="phone">Phone</label>
-        <input
-            type="tel"
-            name="phone"
-            id="phone"
-            required
-            autocomplete="tel"
-            disabled
-            aria-disabled="true"
-        />
+        <input type="tel" name="phone" id="phone" required autocomplete="tel" />
     </div>
 
     <div class="input-area">
         <label for="message">Message</label>
-        <textarea
-            rows="12"
-            name="message"
-            id="message"
-            required
-            disabled
-            aria-disabled="true"></textarea>
+        <textarea rows="12" name="message" id="message" required></textarea>
     </div>
 
     <button><SendIcon />Send Message</button>
 </form>
 
 <style>
-    /* Diabled Form */
-    form::before {
-        content: "Sorry! We are currently not accepting new projects. Please check back soon.";
-        background-color: var(--orange);
-        padding: 1rem;
-        border-radius: 3px;
-    }
     form {
         display: flex;
         flex-direction: column;
